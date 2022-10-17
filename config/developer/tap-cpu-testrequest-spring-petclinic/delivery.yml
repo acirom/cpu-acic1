@@ -30,7 +30,7 @@ spec:
           appliveview-sample/app-live-view-systemproperties
         developer.conventions/target-containers: workload
         kubectl.kubernetes.io/last-applied-configuration: |
-          {"apiVersion":"carto.run/v1alpha1","kind":"Workload","metadata":{"annotations":{},"labels":{"app.kubernetes.io/part-of":"tap-cpu-testrequest-spring-petclinic","apps.tanzu.vmware.com/language":"java","apps.tanzu.vmware.com/pipeline":"test","apps.tanzu.vmware.com/supplychain":"cpu-test-scan-testrequest","apps.tanzu.vmware.com/workload-type":"cpu-web"},"name":"tap-cpu-testrequest-spring-petclinic","namespace":"developer"},"spec":{"params":[{"name":"git_user_email","value":"acic.rome@gmail.com"},{"name":"git_user_name","value":"acirom"},{"name":"gitops_server_address","value":"https://github.com/"},{"name":"gitops_repository_owner","value":"acirom"},{"name":"gitops_repository_name","value":"cpu-acic1"},{"name":"commit_strategy","value":"pull_request"},{"name":"gitops_server_kind","value":"github"},{"name":"gitops_pull_request_title","value":"Test Approve"},{"name":"gitops_pull_request_body","value":"Approve Request Test"}],"source":{"git":{"ref":{"branch":"main"},"url":"https://github.com/acirom/TAPspring-petclinic"}}}}
+          {"apiVersion":"carto.run/v1alpha1","kind":"Workload","metadata":{"annotations":{},"labels":{"app.kubernetes.io/part-of":"tap-cpu-testrequest-spring-petclinic","apps.tanzu.vmware.com/language":"java","apps.tanzu.vmware.com/pipeline":"test","apps.tanzu.vmware.com/supplychain":"cpu-test-scan-testrequest","apps.tanzu.vmware.com/workload-type":"cpu-web"},"name":"tap-cpu-testrequest-spring-petclinic","namespace":"developer"},"spec":{"params":[{"name":"git_user_email","value":"acic.rome@gmail.com"},{"name":"git_user_name","value":"acirom"},{"name":"gitops_server_address","value":"https://github.com/"},{"name":"gitops_repository_owner","value":"acirom"},{"name":"gitops_repository_name","value":"cpu-acic1"},{"name":"gitops_commit_strategy","value":"pull_request"},{"name":"gitops_commit_branch","value":""},{"name":"gitops_server_kind","value":"github"},{"name":"gitops_pull_request_title","value":"Test Approve"},{"name":"gitops_pull_request_body","value":"Approve Request Test"}],"source":{"git":{"ref":{"branch":"main"},"url":"https://github.com/acirom/TAPspring-petclinic"}}}}
         services.conventions.apps.tanzu.vmware.com/mysql: mysql-connector-java/8.0.29
         services.conventions.apps.tanzu.vmware.com/postgres: postgresql/42.3.6
       labels:
@@ -53,7 +53,7 @@ spec:
       - env:
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.endpoint.health.show-details=always -Dmanagement.endpoints.web.base-path="/actuator" -Dmanagement.endpoints.web.exposure.include=* -Dmanagement.health.probes.enabled="true" -Dmanagement.server.port="8081" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: harbor.tanzu.vxlab.local/tap-project/supply-chain2/tap-cpu-testrequest-spring-petclinic-developer@sha256:803c92b173999b8046a636902ef54d40f2aca256edead9628302fbdfc61813b2
+        image: harbor.tanzu.vxlab.local/tap-project/supply-chain2/tap-cpu-testrequest-spring-petclinic-developer@sha256:9ea57ee224925c5112d6a4ff28a44e8276a24f8e2e55276e6b65da41f4c9af98
         livenessProbe:
           httpGet:
             path: /livez
